@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.shardingjdbc.mapper.UserMapper" >
+
+    <resultMap id="BaseResultMap" type="com.example.shardingjdbc.entity.User" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="order_id" property="order_id" jdbcType="BIGINT" />
+        <result column="user_id" property="user_id" jdbcType="BIGINT" />
+        <result column="userName" property="userName" jdbcType="VARCHAR" />
+        <result column="passWord" property="passWord" jdbcType="VARCHAR" />
+        <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, userName, passWord, user_sex, nick_name
+    </sql>
+
+    <insert id="insert" parameterType="com.example.shardingjdbc.entity.User" >
+        INSERT INTO
+        t_order
+        (order_id,user_id,userName,passWord)
+        VALUES
+        (#{order_id},#{user_id},#{userName}, #{passWord})
+    </insert>
+
+</mapper>
